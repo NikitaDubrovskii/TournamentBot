@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/table.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="dataForm" action="javascript:void(0);">
+        <label for="name">Имя</label>
+        <input type="text" id="input_name" placeholder="Введите)))">
+        <label for="team">Команда</label>
+        <input type="text" id="input_team" placeholder="Введите)))">
+        <input type="submit" value="Submit">
+    </form>
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Имя</th>
+                    <th>Команда</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Антон</td>
+                    <td>Гондон</td>
+                    <td>
+                        <button onclick="editRow(this)">Изменить</button>
+                        <button onclick="deleteRow(this)">Удалить</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+   
+    <script src="../script.js"></script>
+
+</body>
+</html>
