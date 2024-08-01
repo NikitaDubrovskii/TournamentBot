@@ -7,12 +7,11 @@ body {font-family: 'Istok Web', sans-serif;background: url("http://picjumbo.com/
 .hero p.year {color: #fff; letter-spacing: 20px; font-size: 34px; margin: -25px 0 25px;}
 .hero p.year i {font-size: 14px;vertical-align: middle;}
 #bracket {overflow:hidden;background-color: #e1e1e1;background-color:rgba(225,225,225,0.9);padding-top: 20px;font-size: 12px;padding: 40px 0;}
-.container {max-width: 1100px;margin: 0 auto;display:block;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: -webkit-flex;display: flex;-webkit-flex-direction:row;flex-direction: row;}
+.container2 {max-width: 1100px;margin: 0 auto;display:block;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: -webkit-flex;display: flex;-webkit-flex-direction:row;flex-direction: row;}
 .split {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;width: 42%;-webkit-flex-direction:row;-moz-flex-direction:row;flex-direction:row;}
 .champion {float:left;display:block;width: 16%;-webkit-flex-direction:row;flex-direction:row;-webkit-align-self:center;align-self:center;margin-top: -15px;text-align: center;padding: 230px 0\9;} 
 .champion i {color: #a0a6a8; font-size: 45px;padding: 10px 0; }
 .round {display:block;float:left;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;width:95%;width:30.8333%\9;}
-.split-two {}
 .split-one .round {margin: 0 2.5% 0 0;}
 .split-two .round {margin: 0 0 0 2.5%;}
 .matchup {margin:0;width: 100%;padding: 10px 0;height:60px;-webkit-transition: all 0.2s;transition: all 0.2s;}
@@ -25,7 +24,7 @@ body {font-family: 'Istok Web', sans-serif;background: url("http://picjumbo.com/
 .current li {opacity: 1;}
 .current li.team {background-color: #fff;box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);opacity: 1;}
 .vote-options {display: block;height: 52px;}
-.share .container {margin: 0 auto; text-align: center;}
+.share .container2 {margin: 0 auto; text-align: center;}
 .share-icon {font-size: 24px; color: #fff;padding: 25px;}
 .share-wrap {max-width: 1100px; text-align: center; margin: 60px auto;}
 .final {margin: 4.5em 0;}
@@ -74,7 +73,7 @@ body {font-family: 'Istok Web', sans-serif;background: url("http://picjumbo.com/
 
 
 @media screen and (min-width: 981px) and (max-width: 1099px) {
-  .container {margin: 0 1%;}
+  .container2 {margin: 0 1%;}
   .champion {width: 14%;}
   .split {width:43%; }
   .split-one .vote-box {margin-left: 138px;}
@@ -84,7 +83,7 @@ body {font-family: 'Istok Web', sans-serif;background: url("http://picjumbo.com/
 }
 
 @media screen and (max-width: 980px) {
-  .container {-webkit-flex-direction:column;-moz-flex-direction:column;flex-direction:column;}
+  .container2 {-webkit-flex-direction:column;-moz-flex-direction:column;flex-direction:column;}
   .split, .champion {width: 90%;margin: 35px 5%;}
   .champion {-webkit-box-ordinal-group:3;-moz-box-ordinal-group:3;-ms-flex-order:3;-webkit-order:3;order:3;}
   .split {border-bottom: 1px solid #b6b6b6; padding-bottom: 20px;}

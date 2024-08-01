@@ -1,0 +1,40 @@
+form {
+    margin: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%; 
+    margin: 0 auto;
+}
+
+input[type="submit"] {
+
+    background-color: #04AA6D;
+    border-radius: 20px;
+    color: white;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto auto;
+
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+
+#dataForm input[type="text"] {
+    background-color: #e3fbff;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+}
