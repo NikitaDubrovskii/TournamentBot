@@ -2,10 +2,12 @@ package dev.dubrovsky.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
-@ComponentScan("dev.dubrovsky")
+@SpringBootApplication(scanBasePackages = "dev.dubrovsky")
+@EnableJpaRepositories(basePackages = "dev.dubrovsky.repository")
+@EntityScan(basePackages = "dev.dubrovsky.model")
 public class TgbotApplication {
 
     public static void main(String[] args) {
