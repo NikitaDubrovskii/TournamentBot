@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-back/tgbot/configuration/src/main/resources/bot.properties
+configuration/src/main/resources/bot.properties
 
 ### STS ###
 .apt_generated
