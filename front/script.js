@@ -38,8 +38,8 @@ function editRow(button) {
     const name = nameCell.textContent;
     const team = teamCell.textContent;
 
-    nameCell.innerHTML = `<input type="text" value="${name}">`;
-    teamCell.innerHTML = `<input type="text" value="${team}">`;
+    nameCell.innerHTML = `<input type="text" class="edit_name" value="${name}">`;
+    teamCell.innerHTML = `<input type="text" class="edit_team" value="${team}">`;
     
     button.textContent = 'Сохранить';
     button.onclick = function() {
