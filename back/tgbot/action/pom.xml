@@ -7,10 +7,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>telegram</artifactId>
+    <artifactId>action</artifactId>
     <packaging>jar</packaging>
 
-    <name>telegram</name>
+    <name>action</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,12 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>dev.dubrovsky</groupId>
-            <artifactId>configuration</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.dubrovsky</groupId>
-            <artifactId>action</artifactId>
+            <artifactId>service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

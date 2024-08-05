@@ -26,9 +26,13 @@ public class User {
     @Column(name = "chat_id")
     private Long chatId;
 
-    public User(String username, Long chatId) {
+    @Column(name = "registered")
+    private Boolean registered;
+
+    public User(String username, Long chatId, Boolean registered) {
         this.username = username;
         this.chatId = chatId;
+        this.registered = registered;
     }
 
 }

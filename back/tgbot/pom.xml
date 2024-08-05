@@ -26,6 +26,7 @@
         <module>service</module>
         <module>configuration</module>
         <module>telegram</module>
+        <module>action</module>
     </modules>
 
     <properties>
