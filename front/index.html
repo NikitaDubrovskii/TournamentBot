@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="../front/styles/table.css">
+    <link rel="stylesheet" type="text/css" href="styles/table.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
+
+    <div class="hi_user">
+        <h1>Привет, Никитка!</h1>
+    </div>
+
     <form id="dataForm" action="javascript:void(0);">
         <label for="name">Имя</label>
         <input type="text" id="input_name" placeholder="Введите)))">
@@ -28,8 +36,8 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Антон</td>
-                    <td>Гондон</td>
+                    <td id="playerName">Антон</td>
+                    <td id="teamName">Гондон</td>
                     <td>
                         <button onclick="editRow(this)">Изменить</button>
                         <button onclick="deleteRow(this)">Удалить</button>
@@ -37,7 +45,14 @@
                 </tr>
             </tbody>
         </table>
-   
+
+        <div class="final_buttons">
+            <button id="save_table">Сохранить таблицу</button>
+            <button id="clear_table">Очистить таблицу</button>
+        </div>
+       
+        
+
     <script src="../front/script.js"></script>
 
 </body>
