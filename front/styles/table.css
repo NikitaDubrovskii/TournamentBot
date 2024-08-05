@@ -52,7 +52,6 @@ th, td {
     background: #0B63F6;
 }
 
-
 #dataForm label{
     margin: auto;
 }
@@ -63,16 +62,22 @@ th, td {
     font-weight: bold;
     padding: 10px;
 }
- 
+
+.edit_name, .edit_team {
+    background-color: #e3fbff;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+}
+
 .final_buttons {
     display: flex;
     justify-content: center;
 }
 
 .final_buttons button {
-    margin: 0px 15px;
-    
     cursor: pointer;
+    margin: 0px 15px;
     padding: 10px 20px;
     border-radius: 8px;
     color: white;
