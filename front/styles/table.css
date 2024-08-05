@@ -1,0 +1,92 @@
+body {
+    background-color: #0e1444;
+    color: #ddd;
+    font-family: 'Nunito';
+}
+
+.hi_user {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    max-width: 30%; 
+}
+
+input[type="text"] {
+    border: 2px solid rgb(26, 10, 117);
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    background: #0B63F6;
+    margin: 20px auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 40px auto;
+    border-radius: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    
+}
+
+#dataTable button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    background: #0B63F6;
+}
+
+#dataForm label{
+    margin: auto;
+}
+
+#dataForm input[type="text"] {
+    background-color: #e3fbff;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.edit_name, .edit_team {
+    background-color: #e3fbff;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.final_buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.final_buttons button {
+    cursor: pointer;
+    margin: 0px 15px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+.final_buttons #save_table {
+    background: #007706;
+}
+
+.final_buttons #clear_table {
+    background: #aaa8a9;
+}
