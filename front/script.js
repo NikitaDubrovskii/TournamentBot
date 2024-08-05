@@ -18,6 +18,10 @@ function addRow() {
     cell2.textContent = document.getElementById('input_name').value;
     cell3.textContent = document.getElementById('input_team').value;
     cell4.innerHTML = '<button onclick="editRow(this)">Изменить</button> <button onclick="deleteRow(this)">Удалить</button>';
+
+    document.getElementById('input_name').value = '';
+    document.getElementById('input_team').value = '';
+
 }
 
 function deleteRow(button) {
@@ -66,3 +70,34 @@ function updateRowNumbers() {
         row.cells[0].textContent = index + 1;
     });
 }
+
+document.getElementById('save_table').addEventListener('click', function() {
+    const nameInput = document.getElementById('input_name');
+    const teamInput = document.getElementById('input_team');
+
+    const table = document.getElementById('dataTable');
+
+    table.style.backgroundColor = rgb(19, 30, 116);
+
+    event.preventDefault();
+});
+
+
+document.getElementById("clear_table").addEventListener("click", function() {
+    const table = document.getElementById("dataTable");
+
+    const rows = table.getElementsByTagName("tr");
+    for (let i = rows.length - 1; i > 0; i--) {
+        table.deleteRow(i);
+    }
+});
+
+
+const teamNameCell = document.getElementById("teamName");
+const playerNameCell = document.getElementById("playerName");
+
+const teamName = teamNameCell.textContent;
+const playerName = parseInt(gamesPlayedCell.textContent);
+
+console.log("Команда:", teamName);
+console.log("Игры:", gamesPlayed);
