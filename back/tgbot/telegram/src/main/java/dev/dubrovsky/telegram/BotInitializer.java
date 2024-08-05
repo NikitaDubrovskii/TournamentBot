@@ -1,4 +1,4 @@
-package dev.dubrovsky.bot;
+package dev.dubrovsky.telegram;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -23,4 +23,5 @@ public class BotInitializer {
             System.out.println("Ошибка: " + e.getMessage());
         }
     }
+
 }

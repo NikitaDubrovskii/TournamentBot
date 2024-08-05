@@ -7,20 +7,16 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bot</artifactId>
+    <artifactId>model</artifactId>
     <packaging>jar</packaging>
 
-    <name>bot</name>
+    <name>model</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>dev.dubrovsky</groupId>
-            <artifactId>configuration</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+
     </dependencies>
 </project>
