@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: tournament_bot_db
+      POSTGRES_USER: nikita
+      POSTGRES_PASSWORD: 5Pf3NuQeBpbRJc6LxiOpuYmaZq5EgOxM
+    ports:
+      - "5432:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: starter/Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - postgres
+    depends_on:
+      - postgres
