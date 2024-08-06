@@ -4,10 +4,8 @@ import dev.dubrovsky.service.UserService;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.objects.inlinequery.InlineQuery;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
@@ -32,23 +30,38 @@ public class ActionSettings implements IAction {
                 SendMessage message = new SendMessage();
                 message.setChatId(chatId);
 
-                message.setText("Введите имя");
+                message.setText("Выберите пункт меню:");
 
-                /*message.setText("Выберите пункт меню:");
+                InlineKeyboardButton checkNameButton  = new InlineKeyboardButton();
+                checkNameButton.setText("Проверить имя");
+                checkNameButton.setCallbackData("settings_check_name");
 
-                InlineKeyboardButton setNameButton = new InlineKeyboardButton();
-                setNameButton.setText("Добавить/изменить имя");
-                setNameButton.setCallbackData("set_name_Введите ваше имя");
+                InlineKeyboardButton changeNameButton = new InlineKeyboardButton();
+                changeNameButton.setText("Добавить/изменить имя");
+                changeNameButton.setCallbackData("settings_change_name");
 
-                List<InlineKeyboardButton> keyboardButtonsRow = new ArrayList<>();
-                keyboardButtonsRow.add(setNameButton);
+                InlineKeyboardButton deleteNameButton = new InlineKeyboardButton();
+                deleteNameButton.setText("Удалить имя");
+                deleteNameButton.setCallbackData("settings_delete_name");
+
+
+                List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
+                keyboardButtonsRow1.add(checkNameButton);
+
+                List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
+                keyboardButtonsRow2.add(changeNameButton);
+
+                List<InlineKeyboardButton> keyboardButtonsRow3 = new ArrayList<>();
+                keyboardButtonsRow3.add(deleteNameButton);
 
                 List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
-                keyboard.add(keyboardButtonsRow);
+                keyboard.add(keyboardButtonsRow1);
+                keyboard.add(keyboardButtonsRow2);
+                keyboard.add(keyboardButtonsRow3);
 
                 InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
                 keyboardMarkup.setKeyboard(keyboard);
-                message.setReplyMarkup(keyboardMarkup);*/
+                message.setReplyMarkup(keyboardMarkup);
 
                 return message;
             } else {
@@ -61,10 +74,50 @@ public class ActionSettings implements IAction {
 
     @Override
     public BotApiMethod<Message> callback(Update update) {
-        var message = update.getMessage();
-        var chatId = message.getChatId();
-        userService.updateName(chatId, message.getText());
-        return createMessage(chatId, "Имя установлено на: " + message.getText());
+        if (update.hasMessage() && update.getMessage().hasText()) {
+            var message = update.getMessage();
+            var chatId = message.getChatId();
+
+            userService.updateName(chatId, message.getText());
+            return createMessage(chatId, "Имя установлено");
+        } else if (update.hasCallbackQuery()) {
+            var chatId = update.getCallbackQuery().getMessage().getChatId();
+            String data = update.getCallbackQuery().getData();
+
+            if (data.endsWith("check_name")) {
+                String name = userService.getName(chatId);
+
+                SendMessage message = new SendMessage();
+                message.setChatId(chatId);
+
+                if (name == null) {
+                    message.setText("Имя не установлено, перейдите к настройке \"Добавить/изменить имя\"");
+                } else {
+                    message.setText("Установлено имя: " + name);
+                }
+
+                return message;
+            } else if (data.endsWith("change_name")) {
+                SendMessage message = new SendMessage();
+                message.setChatId(chatId);
+                message.setText("Введите имя:");
+
+                return message;
+            } else if (data.endsWith("delete_name")) {
+                userService.deleteName(chatId);
+
+                SendMessage message = new SendMessage();
+                message.setChatId(chatId);
+                message.setText("Имя удалено");
+
+                return message;
+            }
+            else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
     private SendMessage createMessage(long chatId, String text) {

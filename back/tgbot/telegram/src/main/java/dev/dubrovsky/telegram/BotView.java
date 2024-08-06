@@ -13,8 +13,6 @@ public class BotView {
     private final ActionTournament actionTournament;
     private final ActionSettings actionSettings;
 
-    private Map<String, IAction> actions;
-
     public BotView(ActionStart actionStart, ActionRegistration actionRegistration,
                    ActionTournament actionTournament, ActionSettings actionSettings) {
         this.actionStart = actionStart;
@@ -24,7 +22,7 @@ public class BotView {
     }
 
     public Map<String, IAction> getActions() {
-        return actions = Map.of(
+        return Map.of(
                 "/start", actionStart,
                 "/register", actionRegistration,
                 "/tournament", actionTournament,

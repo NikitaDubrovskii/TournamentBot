@@ -48,7 +48,7 @@ public class ActionTournament implements IAction {
 
                 return message;
             } else {
-                return createMessage(chatId, "Пожалуйста, зарегистрируйтесь, используя команду /register, прежде чем использовать /tournament.");
+                return createMessage(chatId, "Пожалуйста, зарегистрируйтесь, используя команду /register.");
             }
         }
 

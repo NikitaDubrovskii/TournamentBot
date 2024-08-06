@@ -5,7 +5,9 @@ import dev.dubrovsky.configuration.BotConfiguration;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScopeDefault;
@@ -21,6 +23,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private final BotConfiguration botConfiguration;
 
+    // https://www.youtube.com/watch?v=_d72wm_XGrM
     private final Map<Long, String> bindingBy = new ConcurrentHashMap<>();
     private final Map<String, IAction> actions;
 
@@ -46,20 +49,21 @@ public class TelegramBot extends TelegramLongPollingBot {
                 var message = actions.get(messageKey).handle(update);
                 bindingBy.put(chatId, messageKey);
 
-                try {
-                    execute(message);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
+                executeMessage(message);
             } else if (bindingBy.containsKey(chatId)) {
                 var message = actions.get(bindingBy.get(chatId)).callback(update);
                 bindingBy.remove(chatId);
 
-                try {
-                    execute(message);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
+                executeMessage(message);
+            }
+        } else if (update.hasCallbackQuery()) {
+            var callbackQuery = update.getCallbackQuery().getData();
+            var chatId = update.getCallbackQuery().getMessage().getChatId();
+
+            if (callbackQuery.startsWith("settings_")) {
+                BotApiMethod<Message> message = actions.get(bindingBy.get(chatId)).callback(update);
+
+                executeMessage(message);
             }
         }
     }
@@ -74,6 +78,14 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         try {
             this.execute(new SetMyCommands(commands, new BotCommandScopeDefault(), null));
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void executeMessage(BotApiMethod<Message> message) {
+        try {
+            execute(message);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }

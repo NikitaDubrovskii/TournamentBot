@@ -4,15 +4,10 @@ import dev.dubrovsky.model.User;
 import dev.dubrovsky.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
-
-    private Map<Long, Boolean> waitingForNameMap = new HashMap<>();
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -41,12 +36,12 @@ public class UserService {
         return user != null ? user.getName() : null;
     }
 
-    public boolean isWaitingForName(Long userId) {
-        return waitingForNameMap.getOrDefault(userId, false);
-    }
-
-    public void setWaitingForName(Long userId, boolean isWaiting) {
-        waitingForNameMap.put(userId, isWaiting);
+    public void deleteName(Long chatId) {
+        User user = userRepository.findByChatId(chatId);
+        if (user != null) {
+            user.setName(null);
+            userRepository.save(user);
+        }
     }
 
 }
