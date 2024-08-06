@@ -10,6 +10,22 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Component
 public class ActionStart implements IAction{
 
+    private static final String TEXT_BEFORE_REG = """
+            Добро пожаловать!
+            
+            Для использования данного бота необходимо провести регистрацию, используя команду /register.
+            Иные команды доступны только после регистрации!
+            """;
+
+    private static final String TEXT_AFTER_REG = """
+            Добро пожаловать!
+            
+            /settings - позволяет настроить имя пользователя
+            /tournament - открывает приложение с таблицей
+            
+            Приятного пользования и великих побед!
+            """;
+
     private final UserService userService;
 
     public ActionStart(UserService userService) {
@@ -22,9 +38,9 @@ public class ActionStart implements IAction{
             long chatId = update.getMessage().getChatId();
 
             if (!userService.isUserRegistered(chatId)) {
-                return createMessage(chatId, "Добро пожаловать! Пожалуйста, зарегистрируйтесь, используя команду /register.");
+                return createMessage(chatId, TEXT_BEFORE_REG);
             } else {
-                return createMessage(chatId, "Добро пожаловать! Используйте команду /tournament для открытия таблицы.");
+                return createMessage(chatId, TEXT_AFTER_REG);
             }
         }
 
