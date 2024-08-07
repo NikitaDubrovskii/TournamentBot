@@ -10,6 +10,7 @@ COPY model/pom.xml model/pom.xml
 COPY repository/pom.xml repository/pom.xml
 COPY service/pom.xml service/pom.xml
 COPY telegram/pom.xml telegram/pom.xml
+COPY util/pom.xml util/pom.xml
 
 RUN mvn dependency:go-offline
 
