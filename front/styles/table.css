@@ -1,8 +1,13 @@
 body {
-    background-color: #0e1444;
+    background: linear-gradient(to bottom right, #0e1444 50%, pink);
     color: #ddd;
     font-family: 'Nunito';
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    }
 
 .hi_user {
     display: flex;
@@ -17,7 +22,16 @@ form {
     max-width: 30%; 
 }
 
-input[type="text"] {
+#dataForm input[type="text"] {
+    font-size: 20px;
+    border: 2px solid rgb(26, 10, 117);
+    border-radius: 8px;
+}
+
+#dataTable input[type="text"] {
+    padding: 4px 0px;
+    max-width: 60px;
+    font-size: 15px;
     border: 2px solid rgb(26, 10, 117);
     border-radius: 4px;
 }
@@ -32,18 +46,52 @@ input[type="submit"] {
 }
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 30%;
     margin: 40px auto;
     border-radius: 10px;
 }
 
 th, td {
-    border: 1px solid #ddd;
+    background: #7104ff;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
     padding: 8px;
     text-align: center;
-    
 }
 
+td {
+    color: #000000;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+    }
+
+    th:first-child {
+    border-top-left-radius: 10px;
+    }
+    th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+    }
+    td {
+    padding: 10px 20px;
+    background: #43cce4;
+    }
+    tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+    }
+    tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+    }
+    tr td:last-child {
+    border-right: none;
+    }
+
+    
 #dataTable button {
     cursor: pointer;
     padding: 10px 20px;
