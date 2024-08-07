@@ -13,7 +13,7 @@ public class Ping {
         this.restTemplate = restTemplate;
     }
 
-    @Scheduled(fixedRate = 200_000)
+    @Scheduled(fixedRate = 300_000)
     private void keepBotAlive() {
         restTemplate.getForObject("https://tournamentbotbackend.onrender.com", String.class);
     }
