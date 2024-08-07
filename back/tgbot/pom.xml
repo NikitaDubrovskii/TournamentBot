@@ -27,6 +27,7 @@
         <module>configuration</module>
         <module>telegram</module>
         <module>action</module>
+        <module>util</module>
     </modules>
 
     <properties>
