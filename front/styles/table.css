@@ -1,5 +1,6 @@
 body {
     background: linear-gradient(to bottom right, #0e1444 50%, pink);
+    /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
     color: #ddd;
     font-family: 'Nunito';
 }
@@ -7,7 +8,7 @@ body {
 html, body {
     height: 100%;
     margin: 0;
-    }
+}
 
 .hi_user {
     display: flex;
@@ -26,6 +27,7 @@ form {
     font-size: 20px;
     border: 2px solid rgb(26, 10, 117);
     border-radius: 8px;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
 }
 
 #dataTable input[type="text"] {
@@ -51,6 +53,7 @@ table {
     min-width: 30%;
     margin: 40px auto;
     border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
 }
 
 th, td {
