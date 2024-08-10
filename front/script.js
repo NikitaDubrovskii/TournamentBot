@@ -101,3 +101,14 @@ const playerName = parseInt(gamesPlayedCell.textContent);
 
 console.log("Команда:", teamName);
 console.log("Игры:", gamesPlayed);
+
+
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+window.onload = function() {
+    const username = getQueryParam('username');
+    document.getElementById('greeting').innerText = 'Привет, ' + username + '!';
+}
