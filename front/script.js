@@ -111,4 +111,5 @@ function getQueryParam(name) {
 window.onload = function() {
     const username = getQueryParam('username');
     document.getElementById('greeting').innerText = 'Привет, ' + username + '!';
+    console.log(username);
 }
