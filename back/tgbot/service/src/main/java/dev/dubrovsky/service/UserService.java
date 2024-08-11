@@ -13,6 +13,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
     public boolean isUserRegistered(Long chatId) {
         User user = userRepository.findByChatId(chatId);
         return user != null && user.getRegistered();

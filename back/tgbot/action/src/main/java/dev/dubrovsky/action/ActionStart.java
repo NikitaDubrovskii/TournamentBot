@@ -6,6 +6,14 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.webapp.WebAppInfo;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class ActionStart implements IAction{
@@ -18,12 +26,15 @@ public class ActionStart implements IAction{
             """;
 
     private static final String TEXT_AFTER_REG = """
-            Добро пожаловать!
+            Привет! 🎉
             
-            /settings - позволяет настроить имя пользователя
-            /tournament - открывает приложение с таблицей
+            Добро пожаловать в наш бот для создания турнирных таблиц!
             
-            Приятного пользования и великих побед!
+            Здесь вы можете легко и быстро отслеживать результаты ваших матчей и организовывать турниры с друзьями.
+            
+            Нажмите кнопку ниже, чтобы открыть мини-приложение и начать управлять вашим турниром.
+            
+            Пусть ваши соревнования будут еще увлекательнее!
             """;
 
     private final UserService userService;
@@ -40,7 +51,38 @@ public class ActionStart implements IAction{
             if (!userService.isUserRegistered(chatId)) {
                 return createMessage(chatId, TEXT_BEFORE_REG);
             } else {
-                return createMessage(chatId, TEXT_AFTER_REG);
+                SendMessage message = new SendMessage();
+                message.setChatId(chatId);
+                message.setText(TEXT_AFTER_REG);
+
+                InlineKeyboardButton webAppButton = new InlineKeyboardButton();
+                webAppButton.setText("Open Tournament");
+                String username = update.getMessage().getFrom().getUserName();
+                try {
+                    webAppButton.setWebApp(new WebAppInfo("https://tournamentbot-b7tb.onrender.com?username=" + URLEncoder.encode(username, "UTF-8")));
+                } catch (UnsupportedEncodingException e) {
+                    throw new RuntimeException(e);
+                }
+
+                InlineKeyboardButton settingsButton = new InlineKeyboardButton();
+                settingsButton.setText("Settings");
+                settingsButton.setCallbackData("settings");
+
+                List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
+                keyboardButtonsRow1.add(webAppButton);
+
+                List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
+                keyboardButtonsRow2.add(settingsButton);
+
+                List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
+                keyboard.add(keyboardButtonsRow1);
+                keyboard.add(keyboardButtonsRow2);
+
+                InlineKeyboardMarkup keyboardMarkup = new InlineKeyboardMarkup();
+                keyboardMarkup.setKeyboard(keyboard);
+                message.setReplyMarkup(keyboardMarkup);
+
+                return message;
             }
         }
 

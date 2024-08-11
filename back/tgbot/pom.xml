@@ -28,6 +28,7 @@
         <module>telegram</module>
         <module>action</module>
         <module>util</module>
+        <module>controller</module>
     </modules>
 
     <properties>

@@ -10,6 +10,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.webapp.WebAppInfo;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +36,12 @@ public class ActionTournament implements IAction {
 
                 InlineKeyboardButton webAppButton = new InlineKeyboardButton();
                 webAppButton.setText("Open Tournament");
-                webAppButton.setWebApp(new WebAppInfo("https://tournamentbot-b7tb.onrender.com"));
+                String username = update.getMessage().getFrom().getUserName();
+                try {
+                    webAppButton.setWebApp(new WebAppInfo("https://tournamentbot-b7tb.onrender.com?username=" + URLEncoder.encode(username, "UTF-8")));
+                } catch (UnsupportedEncodingException e) {
+                    throw new RuntimeException(e);
+                }
 
                 List<InlineKeyboardButton> keyboardButtonsRow = new ArrayList<>();
                 keyboardButtonsRow.add(webAppButton);

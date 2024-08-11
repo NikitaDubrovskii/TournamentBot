@@ -23,8 +23,9 @@ public class ActionSettings implements IAction {
 
     @Override
     public BotApiMethod<Message> handle(Update update) {
-        if (update.hasMessage() && update.getMessage().hasText()) {
-            long chatId = update.getMessage().getChatId();
+        if ((update.hasMessage() && update.getMessage().hasText()) || (update.hasCallbackQuery())) {
+            //long chatId = update.getMessage().getChatId();
+            long chatId = update.getCallbackQuery().getMessage().getChatId();
 
             if (userService.isUserRegistered(chatId)) {
                 SendMessage message = new SendMessage();
