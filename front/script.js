@@ -1,3 +1,20 @@
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+function displayGreeting() {
+    const username = getQueryParam('username');
+    const greetingElement = document.getElementById('greeting');
+    
+    if (username) {
+        greetingElement.innerText = 'Привет, ' + username + '!';
+    } else {
+        greetingElement.innerText = 'Привет!';
+    }
+}
+
+window.onload = displayGreeting;
 document.getElementById('dataForm').addEventListener('submit', function(event) {
     event.preventDefault();
     addRow();
@@ -101,3 +118,4 @@ const playerName = parseInt(gamesPlayedCell.textContent);
 
 console.log("Команда:", teamName);
 console.log("Игры:", gamesPlayed);
+
