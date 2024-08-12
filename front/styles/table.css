@@ -48,6 +48,9 @@ input[type="submit"] {
     background: #0B63F6;
     margin: 20px auto;
 }
+input[type="submit"]:hover{
+    background: #317dff;
+}
 
 table {
     border-collapse: separate;
@@ -122,6 +125,18 @@ th:first-child, td:first-child {
     padding: 10px;
 }
 
+table i {
+    padding: 0px 5px;
+    cursor: pointer;
+    color: rgb(45,45,45);;
+    font-size: 20px;
+}
+
+table i:hover {
+    color: rgb(92, 92, 92);;
+    font-size: 20px;
+}
+
 .final_buttons {
     display: flex;
     justify-content: center;
@@ -139,7 +154,13 @@ th:first-child, td:first-child {
 .final_buttons #save_table {
     background: #007706;
 }
+.final_buttons #save_table:hover {
+    background: #00a008;
+}
 
 .final_buttons #clear_table {
     background: #aaa8a9;
+}
+.final_buttons #clear_table:hover {
+    background: #c0c0c0;
 }
