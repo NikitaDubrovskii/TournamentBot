@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="styles/table.css">
+    <link rel="stylesheet" type="text/css" href="styles/account.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles/awesomeFont/css/all.css" />
@@ -11,49 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-
-    <div class="hi_user">
-        <h1 id="greeting">Привет!</h1>
+    <div class="hello_user">
+        <h1>Здесь мог быть...</h1>
     </div>
 
-    <form id="dataForm" action="javascript:void(0);">
-        <label for="name">Имя</label>
-        <input type="text" id="input_name" placeholder="Введите)))">
-        <label for="team">Команда</label>
-        <input type="text" id="input_team" placeholder="Введите)))">
-        <input type="submit" value="Submit">
-    </form>
-
-        <table id="dataTable">
-            <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Имя</th>
-                    <th>Команда</th>
-                    <th>Действия</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td id="playerName">Антон</td>
-                    <td id="teamName">Гондон</td>
-                    <td>
-                        <i class="fa-solid fa-pen-to-square" onclick="editRow(this)"></i>
-                        <i class="fa-solid fa-trash" onclick="deleteRow(this)"></i>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="final_buttons">
-            <button id="save_table">Сохранить таблицу</button>
-            <button id="clear_table">Очистить таблицу</button>
+    <div class="tournaments">
+        <div class="new_tourn">
+            <a href="pages/table.html">Новый турнир</a>
         </div>
-       
-        <script src="script.js"></script>
+        <div class="previous_tourn">
+            <a href="https://www.youtube.com/watch?v=RGKo9iEf0Yc/">Прошлые турниры </a>
+        </div>
+    
+    </div>
+
 
 </body>
 </html>
