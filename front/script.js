@@ -3,19 +3,6 @@ function getQueryParam(name) {
     return urlParams.get(name);
 }
 
-// function displayGreeting() {
-//     const username = getQueryParam('username');
-//     const greetingElement = document.getElementById('greeting');
-    
-//     if (username) {
-//         greetingElement.innerText = 'Привет, ' + username + '!';
-//     } else {
-//         greetingElement.innerText = 'Привет! некийюзер';
-//     }
-// }
-
-// window.onload = displayGreeting;
-
 function displayGreeting(user) {
     const greetingElement = document.getElementById('greeting');
     
@@ -65,21 +52,22 @@ function addRow() {
     cell1.textContent = rowCount;
     cell2.textContent = document.getElementById('input_name').value;
     cell3.textContent = document.getElementById('input_team').value;
-    cell4.innerHTML = '<button onclick="editRow(this)">Изменить</button> <button onclick="deleteRow(this)">Удалить</button>';
+    // cell4.innerHTML = '<button onclick="editRow(this)">Изменить</button> <button onclick="deleteRow(this)">Удалить</button>';
+    cell4.innerHTML = '<i class="fa-solid fa-pen-to-square" onclick="editRow(this)"></i>  <i class="fa-solid fa-trash" onclick="deleteRow(this)"></i>';
 
     document.getElementById('input_name').value = '';
     document.getElementById('input_team').value = '';
 
 }
 
-function deleteRow(button) {
-    const row = button.closest('tr');
+function deleteRow(icon) {
+    const row = icon.closest('tr');
     row.parentNode.removeChild(row);
     updateRowNumbers();
 }
 
-function editRow(button) {
-    const row = button.closest('tr');
+function editRow(icon) {
+    const row = icon.closest('tr');
     const nameCell = row.cells[1];
     const teamCell = row.cells[2];
 
@@ -88,15 +76,23 @@ function editRow(button) {
 
     nameCell.innerHTML = `<input type="text" class="edit_name" value="${name}">`;
     teamCell.innerHTML = `<input type="text" class="edit_team" value="${team}">`;
-    
-    button.textContent = 'Сохранить';
-    button.onclick = function() {
+
+    const editIcon = row.querySelector('.fa-pen-to-square');
+    const deleteIcon = row.querySelector('.fa-trash');
+
+    editIcon.className = 'fa-solid fa-check';
+    deleteIcon.className = 'fa-solid fa-x';
+
+    editIcon.onclick = function() {
         saveRow(this);
+    };
+    deleteIcon.onclick = function() {
+        cancelEdit(this);
     };
 }
 
-function saveRow(button) {
-    const row = button.closest('tr');
+function saveRow(icon) {
+    const row = icon.closest('tr');
     const nameCell = row.cells[1];
     const teamCell = row.cells[2];
 
@@ -105,10 +101,43 @@ function saveRow(button) {
 
     nameCell.textContent = nameInput.value;
     teamCell.textContent = teamInput.value;
-    
-    button.textContent = 'Изменить';
-    button.onclick = function() {
+
+    const editIcon = row.querySelector('.fa-check');
+    const deleteIcon = row.querySelector('.fa-x');
+
+    editIcon.className = 'fa-solid fa-pen-to-square';
+    deleteIcon.className = 'fa-solid fa-trash';
+
+    editIcon.onclick = function() {
         editRow(this);
+    };
+    deleteIcon.onclick = function() {
+        deleteRow(this);
+    };
+}
+
+function cancelEdit(icon) {
+    const row = icon.closest('tr');
+    const nameCell = row.cells[1];
+    const teamCell = row.cells[2];
+
+    const name = nameCell.querySelector('input').value;
+    const team = teamCell.querySelector('input').value;
+
+    nameCell.textContent = name;
+    teamCell.textContent = team;
+
+    const editIcon = row.querySelector('.fa-check');
+    const deleteIcon = row.querySelector('.fa-x');
+
+    editIcon.className = 'fa-solid fa-pen-to-square';
+    deleteIcon.className = 'fa-solid fa-trash';
+
+    editIcon.onclick = function() {
+        editRow(this);
+    };
+    deleteIcon.onclick = function() {
+        deleteRow(this);
     };
 }
 
