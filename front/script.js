@@ -3,18 +3,49 @@ function getQueryParam(name) {
     return urlParams.get(name);
 }
 
-function displayGreeting() {
-    const username = getQueryParam('username');
+// function displayGreeting() {
+//     const username = getQueryParam('username');
+//     const greetingElement = document.getElementById('greeting');
+    
+//     if (username) {
+//         greetingElement.innerText = 'Привет, ' + username + '!';
+//     } else {
+//         greetingElement.innerText = 'Привет! некийюзер';
+//     }
+// }
+
+// window.onload = displayGreeting;
+
+function displayGreeting(user) {
     const greetingElement = document.getElementById('greeting');
     
-    if (username) {
-        greetingElement.innerText = 'Привет, ' + username + '!';
+    if (user.name) {
+        greetingElement.innerText = 'Привет, ' + user.name + '!';
+    } else if (user.username) {
+        greetingElement.innerText = 'Привет, ' + user.username + '!';
     } else {
         greetingElement.innerText = 'Привет!';
     }
 }
 
-window.onload = displayGreeting;
+window.onload = function() {
+    const username = getQueryParam('username');
+
+    if (username) {
+        fetch(`https://tournamentbotbackend.onrender.com/api/user?username=${username}`)
+            .then(response => response.json())
+            .then(user => {
+                displayGreeting(user);
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+                displayGreeting({});
+            });
+    } else {
+        displayGreeting({});
+    }
+}
+
 document.getElementById('dataForm').addEventListener('submit', function(event) {
     event.preventDefault();
     addRow();
@@ -119,3 +150,16 @@ const playerName = parseInt(gamesPlayedCell.textContent);
 console.log("Команда:", teamName);
 console.log("Игры:", gamesPlayed);
 
+fetch('https://tournamentbotbackend.onrender.com/api/user')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('User data:', data);
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
