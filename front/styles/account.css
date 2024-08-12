@@ -1,0 +1,53 @@
+body {
+    background: linear-gradient(to bottom right, #0e1444 0%, #1a2685 35%, #371b85 50%, pink 100%);
+    /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
+    color: #ddd;
+    font-family: 'Nunito';
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.hello_user {
+    display: flex;
+    justify-content: center;
+}
+
+.tournaments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    width: 300px;
+    height: 500px;
+}
+
+.tournaments div{
+    height: 200px;
+    width: 300px;
+    background-color: rgb(45,45,45);
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
+}
+
+.tournaments div:hover{
+    background-color:rgb(63, 63, 63)
+}
+
+.tournaments div a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    text-decoration: none;
+    color: rgb(221, 221, 221);
+}
+
+.tournaments div a:hover{
+    color: rgb(255, 255, 255);
+}

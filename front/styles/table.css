@@ -3,7 +3,6 @@ body {
     /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
     color: #ddd;
     font-family: 'Nunito';
-    touch-action: manipulation;
 }
 
 html, body {
