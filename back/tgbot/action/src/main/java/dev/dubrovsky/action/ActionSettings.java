@@ -23,15 +23,18 @@ public class ActionSettings implements IAction {
 
     @Override
     public BotApiMethod<Message> handle(Update update) {
-        if ((update.hasMessage() && update.getMessage().hasText()) || (update.hasCallbackQuery())) {
-            //long chatId = update.getMessage().getChatId();
+        if (update.hasCallbackQuery()) {
             long chatId = update.getCallbackQuery().getMessage().getChatId();
 
             if (userService.isUserRegistered(chatId)) {
                 SendMessage message = new SendMessage();
                 message.setChatId(chatId);
 
-                message.setText("Выберите пункт меню:");
+                message.setText("""
+                        Настройки ⚙️
+                        
+                        Выберите пункт меню:
+                        """);
 
                 InlineKeyboardButton checkNameButton  = new InlineKeyboardButton();
                 checkNameButton.setText("Проверить имя");
@@ -80,7 +83,11 @@ public class ActionSettings implements IAction {
             var chatId = message.getChatId();
 
             userService.updateName(chatId, message.getText());
-            return createMessage(chatId, "Имя установлено");
+            return createMessage(chatId, """
+                    Настройки ⚙️ -> Поменять имя
+                    
+                    Имя установлено!
+                    """);
         } else if (update.hasCallbackQuery()) {
             var chatId = update.getCallbackQuery().getMessage().getChatId();
             String data = update.getCallbackQuery().getData();
@@ -92,16 +99,28 @@ public class ActionSettings implements IAction {
                 message.setChatId(chatId);
 
                 if (name == null) {
-                    message.setText("Имя не установлено, перейдите к настройке \"Добавить/изменить имя\"");
+                    message.setText("""
+                            Настройки ⚙️ -> Проверить имя
+                            
+                            Имя не установлено, перейдите к настройке "Добавить/изменить имя".
+                            """);
                 } else {
-                    message.setText("Установлено имя: " + name);
+                    message.setText("""
+                            Настройки ⚙️ -> Проверить имя
+                            
+                            Установлено имя: %s
+                            """.formatted(name));
                 }
 
                 return message;
             } else if (data.endsWith("change_name")) {
                 SendMessage message = new SendMessage();
                 message.setChatId(chatId);
-                message.setText("Введите имя:");
+                message.setText("""
+                        Настройки ⚙️ -> Поменять имя
+                        
+                        Введите имя:
+                        """);
 
                 return message;
             } else if (data.endsWith("delete_name")) {
@@ -109,7 +128,11 @@ public class ActionSettings implements IAction {
 
                 SendMessage message = new SendMessage();
                 message.setChatId(chatId);
-                message.setText("Имя удалено");
+                message.setText("""
+                        Настройки ⚙️ -> Удалить имя
+                        
+                        Имя удалено!
+                        """);
 
                 return message;
             }

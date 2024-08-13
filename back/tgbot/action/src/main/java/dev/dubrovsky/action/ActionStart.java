@@ -8,10 +8,12 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.api.objects.webapp.WebAppData;
 import org.telegram.telegrambots.meta.api.objects.webapp.WebAppInfo;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,17 +58,13 @@ public class ActionStart implements IAction{
                 message.setText(TEXT_AFTER_REG);
 
                 InlineKeyboardButton webAppButton = new InlineKeyboardButton();
-                webAppButton.setText("Open Tournament");
+                webAppButton.setText("Open Tournament 🏆");
                 String username = update.getMessage().getFrom().getUserName();
-                try {
-                    webAppButton.setWebApp(new WebAppInfo("https://tournamentbot-b7tb.onrender.com?username=" + URLEncoder.encode(username, "UTF-8")));
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException(e);
-                }
+                webAppButton.setWebApp(new WebAppInfo("https://tournamentbot-b7tb.onrender.com?username=" + URLEncoder.encode(username, StandardCharsets.UTF_8)));
 
                 InlineKeyboardButton settingsButton = new InlineKeyboardButton();
-                settingsButton.setText("Settings");
-                settingsButton.setCallbackData("settings");
+                settingsButton.setText("Settings ⚙️");
+                settingsButton.setCallbackData("/settings");
 
                 List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
                 keyboardButtonsRow1.add(webAppButton);
