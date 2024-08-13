@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(to bottom right, #0e1444 50%, pink);
+    background: linear-gradient(to bottom right, #0e1444 0%, #1a2685 35%, #371b85 50%, pink 100%);
+    /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
     color: #ddd;
     font-family: 'Nunito';
 }
@@ -7,7 +8,7 @@ body {
 html, body {
     height: 100%;
     margin: 0;
-    }
+}
 
 .hi_user {
     display: flex;
@@ -19,13 +20,15 @@ form {
     justify-content: center;
     margin: auto;
     flex-direction: column;
-    max-width: 30%; 
+    max-width: 300px; 
 }
 
 #dataForm input[type="text"] {
+    height: 30px;
     font-size: 20px;
     border: 2px solid rgb(26, 10, 117);
     border-radius: 8px;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
 }
 
 #dataTable input[type="text"] {
@@ -37,6 +40,7 @@ form {
 }
 
 input[type="submit"] {
+    font-size: 17px;
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 8px;
@@ -44,20 +48,24 @@ input[type="submit"] {
     background: #0B63F6;
     margin: 20px auto;
 }
+input[type="submit"]:hover{
+    background: #317dff;
+}
 
 table {
     border-collapse: separate;
     border-spacing: 0;
-    min-width: 30%;
+    max-width: 75%;
     margin: 40px auto;
     border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
 }
 
 th, td {
-    background: #7104ff;
+    background: rgb(45,45,45);
     border-style: solid;
     border-width: 0 1px 1px 0;
-    border-color: white;
+    border-color: rgb(45,45,45);
     padding: 8px;
     text-align: center;
 }
@@ -69,7 +77,6 @@ td {
 th:first-child, td:first-child {
     text-align: left;
     }
-
     th:first-child {
     border-top-left-radius: 10px;
     }
@@ -78,8 +85,8 @@ th:first-child, td:first-child {
     border-right: none;
     }
     td {
-    padding: 10px 20px;
-    background: #43cce4;
+    padding: 10px 16px;
+    background: #e3fbff;
     }
     tr:last-child td:first-child {
     border-radius: 0 0 0 10px;
@@ -118,15 +125,28 @@ th:first-child, td:first-child {
     padding: 10px;
 }
 
+table i {
+    padding: 0px 5px;
+    cursor: pointer;
+    color: rgb(45,45,45);;
+    font-size: 20px;
+}
+
+table i:hover {
+    color: rgb(92, 92, 92);;
+    font-size: 20px;
+}
+
 .final_buttons {
     display: flex;
     justify-content: center;
 }
 
 .final_buttons button {
+    font-size: 17px;
     cursor: pointer;
     margin: 0px 15px;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 8px;
     color: white;
 }
@@ -134,7 +154,13 @@ th:first-child, td:first-child {
 .final_buttons #save_table {
     background: #007706;
 }
+.final_buttons #save_table:hover {
+    background: #00a008;
+}
 
 .final_buttons #clear_table {
     background: #aaa8a9;
+}
+.final_buttons #clear_table:hover {
+    background: #c0c0c0;
 }

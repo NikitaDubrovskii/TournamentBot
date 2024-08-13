@@ -1,0 +1,73 @@
+body {
+    background: linear-gradient(to bottom right, #0e1444 50%, pink);
+    color: #ddd;
+    font-family: 'Nunito';
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+label {
+    margin: auto;
+    display: block;
+    font-size: 14px;
+}
+
+.login_form_block {
+    padding: 10%;
+}
+
+.login_form {
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
+    padding: 20px;
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    background: rgb(45,45,45);
+    color:rgb(255, 255, 255);
+}
+
+.login_form div {
+    margin-top: 20px;
+    font-size: xx-large;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.login_form div input {
+    margin: 0 auto;
+    border-radius: 4px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: x-large;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    outline: none;
+}
+
+.form_button {
+    cursor: pointer;
+    font-size: x-large;
+    border: 0;
+    border-radius: 8px;
+    outline: none;
+    color: white;
+    background: #0B63F6;
+}
+
+.form_button:hover {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    box-shadow: 0 0 5px 2px rgba(26, 26, 26, 0.5);
+}
+
+.form_button:active {
+    transform: translateY(3px);
+}
