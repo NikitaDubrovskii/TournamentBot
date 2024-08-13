@@ -10,14 +10,12 @@ public class BotView {
 
     private final ActionStart actionStart;
     private final ActionRegistration actionRegistration;
-    private final ActionTournament actionTournament;
     private final ActionSettings actionSettings;
 
     public BotView(ActionStart actionStart, ActionRegistration actionRegistration,
-                   ActionTournament actionTournament, ActionSettings actionSettings) {
+                   ActionSettings actionSettings) {
         this.actionStart = actionStart;
         this.actionRegistration = actionRegistration;
-        this.actionTournament = actionTournament;
         this.actionSettings = actionSettings;
     }
 
@@ -25,7 +23,6 @@ public class BotView {
         return Map.of(
                 "/start", actionStart,
                 "/register", actionRegistration,
-                "/tournament", actionTournament,
                 "/settings", actionSettings
         );
     }

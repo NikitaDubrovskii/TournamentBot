@@ -51,17 +51,28 @@ public class TelegramBot extends TelegramLongPollingBot {
 
                 executeMessage(message);
             } else if (bindingBy.containsKey(chatId)) {
-                var message = actions.get(bindingBy.get(chatId)).callback(update);
-                bindingBy.remove(chatId);
+                if (bindingBy.get(chatId).equals("/settings")) {
+                    var message = actions.get(bindingBy.get(chatId)).callback(update);
 
-                executeMessage(message);
+                    executeMessage(message);
+                } else {
+                    var message = actions.get(bindingBy.get(chatId)).callback(update);
+                    bindingBy.remove(chatId);
+
+                    executeMessage(message);
+                }
             }
         } else if (update.hasCallbackQuery()) {
             var callbackQuery = update.getCallbackQuery().getData();
             var chatId = update.getCallbackQuery().getMessage().getChatId();
 
-            if (callbackQuery.startsWith("settings_")) {
-                BotApiMethod<Message> message = actions.get(bindingBy.get(chatId)).callback(update);
+            if (callbackQuery.equals("/settings")) {
+                var message = actions.get(callbackQuery).handle(update);
+                bindingBy.put(chatId, callbackQuery);
+
+                executeMessage(message);
+            } else if (callbackQuery.startsWith("settings_")) {
+                var message = actions.get(bindingBy.get(chatId)).callback(update);
 
                 executeMessage(message);
             }
@@ -72,9 +83,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     public void registerBotCommands() {
         List<BotCommand> commands = new ArrayList<>();
         commands.add(new BotCommand("/start", "Start bot"));
-        commands.add(new BotCommand("/register", "Register to use the bot"));
-        commands.add(new BotCommand("/settings", "Change your name"));
-        commands.add(new BotCommand("/tournament", "Open Tournament table"));
 
         try {
             this.execute(new SetMyCommands(commands, new BotCommandScopeDefault(), null));
