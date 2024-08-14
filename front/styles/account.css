@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(to bottom right, #0e1444 0%, #1a2685 35%, #371b85 50%, pink 100%);
+    background-color: #1A1125;
+     /* background: linear-gradient(to bottom right, black 0%, #180d38 50%, #1d0958 100%);  */
     /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
     color: #ddd;
     font-family: 'Nunito';
@@ -11,7 +12,7 @@ html, body {
     padding: 0;
 }
 
-.hello_user {
+.hi_user {
     display: flex;
     justify-content: center;
 }
@@ -21,23 +22,24 @@ html, body {
     flex-direction: column;
     justify-content: space-around;
     margin: auto;
-    width: 300px;
-    height: 500px;
+    width: 250px;
+    height: 400px;
 }
 
 .tournaments div{
-    height: 200px;
-    width: 300px;
-    background-color: rgb(45,45,45);
+    height: 150px;
+    width: 250px;
+    background-color: #5B04BC;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
 }
 
 .tournaments div:hover{
-    background-color:rgb(63, 63, 63)
+    background-color:#6402d4
 }
 
 .tournaments div a {
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
