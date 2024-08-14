@@ -1,0 +1,164 @@
+body {
+    background-color: #1A1125;
+     /* background: linear-gradient(to bottom right, black 0%, #180d38 50%, #1d0958 100%);  */
+    /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
+    color: #ddd;
+    font-family: 'Nunito';
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.hi_user {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-direction: column;
+    max-width: 300px; 
+}
+
+#dataForm input[type="text"] {
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid #480299;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
+}
+
+#dataTable input[type="text"] {
+    padding: 4px 0px;
+    max-width: 60px;
+    font-size: 15px;
+    border: 2px solid #480299;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    font-size: 17px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    background: rgb(45,45,45);
+    margin: 20px auto;
+}
+input[type="submit"]:hover{
+    background: rgb(71, 71, 71);
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    max-width: 75%;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
+}
+
+th, td {
+    background: #5B04BC;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: rgb(45,45,45);
+    padding: 8px;
+    text-align: center;
+}
+
+td {
+    color: white;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+    }
+    th:first-child {
+    border-top-left-radius: 10px;
+    }
+    th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+    }
+    td {
+    padding: 10px 16px;
+    background: #261D32;
+    }
+    tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+    }
+    tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+    }
+    tr td:last-child {
+    border-right: none;
+    }
+
+
+#dataForm label{
+    margin: auto;
+}
+
+#dataForm input[type="text"] {
+    background-color: #f7e3ff;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.edit_name, .edit_team {
+    background-color: #f7e3ff;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+}
+
+table i {
+    padding: 0px 5px;
+    cursor: pointer;
+    color: #f7e3ff;
+    font-size: 20px;
+}
+
+table i:hover {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.final_buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.final_buttons button {
+    font-size: 17px;
+    cursor: pointer;
+    margin: 0px 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    color: white;
+}
+
+.final_buttons #save_table {
+    background: rgb(45,45,45);
+}
+.final_buttons #save_table:hover {
+    background: #002e02;
+}
+
+.final_buttons #clear_table {
+    background: rgb(45,45,45);
+}
+.final_buttons #clear_table:hover {
+    background: #3a0000;
+}
+
+.final_buttons button a {
+    width: 100%;
+    height: 100%;
+}

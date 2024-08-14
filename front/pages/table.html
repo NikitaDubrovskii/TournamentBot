@@ -11,40 +11,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
-
     <div class="hi_user">
         <h1 id="greeting">Привет!</h1>
     </div>
 
-    <form id="dataForm" action="javascript:void(0);">
-        <label for="name">Имя</label>
-        <input type="text" id="input_name" placeholder="Введите)))">
-        <label for="team">Команда</label>
-        <input type="text" id="input_team" placeholder="Введите)))">
-        <input type="submit" value="Submit">
-    </form>
-
-        <table id="dataTable">
-            <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Имя</th>
-                    <th>Команда</th>
-                    <th>Действия</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-
-        <div class="final_buttons">
-            <button id="save_table">Сохранить таблицу</button>
-            <button id="clear_table">Очистить таблицу</button>
-        </div>
-       
-        <script src="../script.js"></script>
-
+    <table id="game_table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Команда</th>
+                <th>Игры</th>
+                <th>ГЗ</th>
+                <th>ГП</th>
+                <th>Очки</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <div class="table_what">Среал</div>
+                    <div class="table_who">@Антон Гондон</div>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <div class="table_what">Барселона</div>
+                    <div class="table_who">@Мишка Петушок</div>
+                </td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
