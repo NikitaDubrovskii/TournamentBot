@@ -13,13 +13,16 @@ import lombok.Setter;
 @NoArgsConstructor
 public class TournamentParticipant {
 
-    @Id
+    @EmbeddedId
+    private TournamentParticipantId tournamentParticipantId;
+
     @ManyToOne
+    @MapsId("tournamentId")
     @JoinColumn(name = "tournament_id")
     private Tournament tournament;
 
-    @Id
     @ManyToOne
+    @MapsId("participantId")
     @JoinColumn(name = "participant_id")
     private Participant participant;
 

@@ -12,6 +12,7 @@ COPY service/pom.xml service/pom.xml
 COPY telegram/pom.xml telegram/pom.xml
 COPY util/pom.xml util/pom.xml
 COPY controller/pom.xml controller/pom.xml
+COPY payload/pom.xml payload/pom.xml
 
 RUN mvn dependency:go-offline
 

@@ -1,5 +1,6 @@
 package dev.dubrovsky.service.group;
 
+import dev.dubrovsky.repository.group.GroupStandingRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +8,6 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class GroupStandingService {
 
-    private final GroupStandingService groupStandingService;
+    private final GroupStandingRepository groupStandingRepository;
 
 }

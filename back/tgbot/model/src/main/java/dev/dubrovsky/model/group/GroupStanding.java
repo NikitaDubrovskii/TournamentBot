@@ -15,7 +15,7 @@ public class GroupStanding {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "group_id", nullable = false)

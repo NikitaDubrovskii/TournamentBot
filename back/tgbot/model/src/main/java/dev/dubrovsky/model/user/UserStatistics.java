@@ -14,7 +14,7 @@ public class UserStatistics {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "telegram_id", nullable = false, unique = true)
     private Integer telegramId;

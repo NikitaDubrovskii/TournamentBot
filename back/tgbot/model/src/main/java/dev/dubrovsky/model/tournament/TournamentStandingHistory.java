@@ -15,7 +15,7 @@ public class TournamentStandingHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "tournament_history_id", nullable = false)

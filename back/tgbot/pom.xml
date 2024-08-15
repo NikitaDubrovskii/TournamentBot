@@ -29,6 +29,7 @@
         <module>action</module>
         <module>util</module>
         <module>controller</module>
+        <module>payload</module>
     </modules>
 
     <properties>

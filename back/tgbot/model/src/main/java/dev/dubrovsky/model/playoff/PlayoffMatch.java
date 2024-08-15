@@ -17,7 +17,7 @@ public class PlayoffMatch {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "playoff_round_id", nullable = false)
