@@ -1,6 +1,6 @@
 package dev.dubrovsky.action;
 
-import dev.dubrovsky.service.UserService;
+import dev.dubrovsky.service.user.UserService;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

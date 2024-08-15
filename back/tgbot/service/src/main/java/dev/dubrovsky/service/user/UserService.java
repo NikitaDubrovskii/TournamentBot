@@ -1,17 +1,15 @@
-package dev.dubrovsky.service;
+package dev.dubrovsky.service.user;
 
-import dev.dubrovsky.model.User;
-import dev.dubrovsky.repository.UserRepository;
+import dev.dubrovsky.model.user.User;
+import dev.dubrovsky.repository.user.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);

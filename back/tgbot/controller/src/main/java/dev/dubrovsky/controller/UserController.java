@@ -1,7 +1,7 @@
 package dev.dubrovsky.controller;
 
-import dev.dubrovsky.model.User;
-import dev.dubrovsky.service.UserService;
+import dev.dubrovsky.model.user.User;
+import dev.dubrovsky.service.user.UserService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
