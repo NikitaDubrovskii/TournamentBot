@@ -1,6 +1,6 @@
-package dev.dubrovsky.repository;
+package dev.dubrovsky.repository.user;
 
-import dev.dubrovsky.model.User;
+import dev.dubrovsky.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
