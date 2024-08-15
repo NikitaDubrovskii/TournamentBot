@@ -1,19 +1,17 @@
-package dev.dubrovsky.controller;
+package dev.dubrovsky.controller.user;
 
 import dev.dubrovsky.model.user.User;
 import dev.dubrovsky.service.user.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
+@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com") //может можно убрать
+@AllArgsConstructor
 public class UserController {
 
     private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping()
     public User getUser(@RequestParam("username") String username) {
