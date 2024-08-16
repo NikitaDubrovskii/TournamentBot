@@ -4,6 +4,10 @@ body {
     /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
     color: #ddd;
     font-family: 'Nunito';
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 html, body {
@@ -21,14 +25,15 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     margin: auto;
-    width: 250px;
-    height: 400px;
+    width: 200px;
+    height: 350px;
 }
 
 .tournaments div{
-    height: 150px;
-    width: 250px;
+    height: 120px;
+    width: 200px;
     background-color: #5B04BC;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
