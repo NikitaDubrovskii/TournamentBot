@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TournamentRepository extends JpaRepository<Tournament, Long> {
 
+    Tournament findByIsActive(boolean active);
 
+    Tournament findByIsActiveTrue();
 
 }

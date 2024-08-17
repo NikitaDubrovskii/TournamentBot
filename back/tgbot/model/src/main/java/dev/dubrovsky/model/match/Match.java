@@ -32,9 +32,6 @@ public class Match {
     @JoinColumn(name = "team2_id", nullable = false)
     private Participant team2;
 
-    @Column(name = "match_date", nullable = false)
-    private LocalDateTime matchDate;
-
     @Column(name = "team1_score", nullable = false)
     private Integer team1Score = 0;
 
