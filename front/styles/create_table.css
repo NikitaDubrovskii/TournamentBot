@@ -12,24 +12,21 @@ html, body {
     margin: 0;
 }
 
+h1 {
+    font-size: 28px;
+}
+
 .hi_user {
     display: flex;
     justify-content: center;
-}
-
-.tourn_type {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-    background-color: red;
-    width: 200px;
+    margin-top: 40px;
 }
 
 form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: auto;
-    flex-direction: column;
 }
 
 #dataForm {
@@ -37,35 +34,35 @@ form {
 }
 
 #tournType {
-    max-width: 450px;
+    height: 150px;
+    max-width: 380px;
     margin-bottom: 100px;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.tourn_div {
-    display: flex;
-    justify-content: space-between;
+#tournType input[type="text"]{
+  width: 100%;
 }
 
 select {
     text-align: center;
     cursor: pointer;
-        display: block; 
-        font-size: 20px; 
-        color: #444; 
-        padding: 10px; 
-        width: 100%; 
-        max-width: 100%; 
-        border: 1px solid #480299;
-        box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
-        border-radius: 8px;
-         background-color: #f7e3ff; 
+    font-size: 20px; 
+    color: #444; 
+    padding: 10px; 
+    width: 200px; 
+    border: 1px solid #480299;
+    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
+    border-radius: 8px;
+    background-color: #f7e3ff; 
  } 
 
 Form input[type="text"] {
     background-color: #f7e3ff;
     color: #000000;
-    height: 30px;
-    font-size: 20px;
+    height: 21px;
+    font-size: 19px;
     font-weight: bold;
     border: 1px solid #480299;
     border-radius: 8px;
@@ -98,16 +95,30 @@ input[type="submit"]:hover{
     background: rgb(71, 71, 71);
 }
 
+
+.table-container {
+    max-height: 400px; /* Установите максимальную высоту для контейнера */
+    overflow-y: auto; /* Разрешаем вертикальный скролл внутри контейнера */
+    width: 75%; /* Ширина таблицы */
+    margin: 40px auto;
+}
+
 table {
+    overflow-y: auto;
+    width: 380px;
+    table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0;
-    max-width: 75%;
     margin: 40px auto;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
 }
 
 th, td {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
     background: #5B04BC;
     border-style: solid;
     border-width: 0 1px 1px 0;

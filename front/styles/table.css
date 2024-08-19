@@ -12,16 +12,21 @@ html, body {
     margin: 0;
 }
 
+h1 {
+    font-size: 28px;
+}
+
 .hi_user {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 
 #game_table {
     border-collapse: separate;
     border-spacing: 0;
     min-width: 50%;
-    max-width: 80%;
+    max-width: 70%;
     margin: 40px auto;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
@@ -51,7 +56,7 @@ th:first-child, td:first-child {
     border-right: none;
     }
     td {
-    padding: 10px 16px;
+    padding: 8px 14px;
     background: #261D32;
     }
     tr:last-child td:first-child {

@@ -7,7 +7,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
 }
 
 html, body {
@@ -16,9 +16,14 @@ html, body {
     padding: 0;
 }
 
+h1 {
+    font-size: 28px;
+}
+
 .hi_user {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 
 .tournaments {
@@ -27,13 +32,13 @@ html, body {
     justify-content: space-around;
     align-items: center;
     margin: auto;
-    width: 200px;
-    height: 350px;
+    width: 170px;
+    height: 280px;
 }
 
 .tournaments div{
-    height: 120px;
-    width: 200px;
+    height: 90px;
+    width: 170px;
     background-color: #5B04BC;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
@@ -50,7 +55,7 @@ html, body {
     justify-content: center;
     width: 100%;
     height: 100%;
-    font-size: 30px;
+    font-size: 25px;
     text-decoration: none;
     color: rgb(221, 221, 221);
 }
