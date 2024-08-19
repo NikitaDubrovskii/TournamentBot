@@ -4,16 +4,14 @@ import dev.dubrovsky.dto.standing.StandingDTO;
 import dev.dubrovsky.model.standing.Standing;
 import dev.dubrovsky.service.standing.StandingService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/standing")
+@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
 @AllArgsConstructor
 public class StandingController {
 

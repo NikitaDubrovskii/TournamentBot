@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/match")
+@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
 @AllArgsConstructor
 public class MatchController {
 
