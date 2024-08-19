@@ -33,6 +33,40 @@ window.onload = function() {
     }
 }
 
+document.getElementById('save_table').addEventListener('click', function() { 
+    const tournamentName = document.getElementById('input_tournment').value; 
+    const tournamentType = document.querySelector('#tournType select').value; 
+    const participants = []; 
+ 
+    const rows = document.querySelectorAll('#dataTable tbody tr'); 
+    rows.forEach(row => { 
+        const username = row.cells[1].innerText; 
+        const teamName = row.cells[2].innerText; 
+        participants.push({ username, teamName }); 
+    }); 
+ 
+    const data = { 
+        name: tournamentName, 
+        format: tournamentType.toLowerCase(), 
+        participants: participants 
+    }; 
+ 
+    fetch('https://tournamentbotbackend.onrender.com/api/tournament/add', { 
+        method: 'POST', 
+        headers: { 
+            'Content-Type': 'application/json' 
+        }, 
+        body: JSON.stringify(data) 
+    }) 
+    .then(response => response.json()) 
+    .then(data => { 
+        console.log('Success:', data); 
+    }) 
+    .catch((error) => { 
+        console.error('Error:', error); 
+    }); 
+});
+
 document.getElementById('dataForm').addEventListener('submit', function(event) {
     event.preventDefault();
     addRow();
@@ -116,3 +150,6 @@ fetch('https://tournamentbotbackend.onrender.com/api/user')
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
     });
+
+
+    
