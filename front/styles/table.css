@@ -1,8 +1,10 @@
 body {
-    background: linear-gradient(to bottom right, #0e1444 0%, #1a2685 35%, #371b85 50%, pink 100%);
+    background-color: #1A1125;
+     /* background: linear-gradient(to bottom right, black 0%, #180d38 50%, #1d0958 100%);  */
     /* background: linear-gradient(to bottom right, #0e1444 , rgb(130, 15, 197)); */
     color: #ddd;
     font-family: 'Nunito';
+    overflow: hidden;
 }
 
 html, body {
@@ -10,59 +12,28 @@ html, body {
     margin: 0;
 }
 
+h1 {
+    font-size: 28px;
+}
+
 .hi_user {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    flex-direction: column;
-    max-width: 300px; 
-}
-
-#dataForm input[type="text"] {
-    height: 30px;
-    font-size: 20px;
-    border: 2px solid rgb(26, 10, 117);
-    border-radius: 8px;
-    box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
-}
-
-#dataTable input[type="text"] {
-    padding: 4px 0px;
-    max-width: 60px;
-    font-size: 15px;
-    border: 2px solid rgb(26, 10, 117);
-    border-radius: 4px;
-}
-
-input[type="submit"] {
-    font-size: 17px;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: white;
-    background: #0B63F6;
-    margin: 20px auto;
-}
-input[type="submit"]:hover{
-    background: #317dff;
-}
-
-table {
+#game_table {
     border-collapse: separate;
     border-spacing: 0;
-    max-width: 75%;
+    min-width: 50%;
+    max-width: 70%;
     margin: 40px auto;
     border-radius: 10px;
     box-shadow: 0 0 5px 2px rgba(16, 16, 16, 0.5);
 }
 
 th, td {
-    background: rgb(45,45,45);
+    background: #5B04BC;
     border-style: solid;
     border-width: 0 1px 1px 0;
     border-color: rgb(45,45,45);
@@ -71,7 +42,7 @@ th, td {
 }
 
 td {
-    color: #000000;
+    color: white;
 }
 
 th:first-child, td:first-child {
@@ -85,8 +56,8 @@ th:first-child, td:first-child {
     border-right: none;
     }
     td {
-    padding: 10px 16px;
-    background: #e3fbff;
+    padding: 8px 14px;
+    background: #261D32;
     }
     tr:last-child td:first-child {
     border-radius: 0 0 0 10px;
@@ -98,69 +69,13 @@ th:first-child, td:first-child {
     border-right: none;
     }
 
-    
-#dataTable button {
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 8px;
+.table_what {
     color: white;
-    background: #0B63F6;
+    text-align: center;
 }
 
-#dataForm label{
-    margin: auto;
-}
-
-#dataForm input[type="text"] {
-    background-color: #e3fbff;
-    color: #000000;
-    font-weight: bold;
-    padding: 10px;
-}
-
-.edit_name, .edit_team {
-    background-color: #e3fbff;
-    color: #000000;
-    font-weight: bold;
-    padding: 10px;
-}
-
-table i {
-    padding: 0px 5px;
-    cursor: pointer;
-    color: rgb(45,45,45);;
-    font-size: 20px;
-}
-
-table i:hover {
-    color: rgb(92, 92, 92);;
-    font-size: 20px;
-}
-
-.final_buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.final_buttons button {
-    font-size: 17px;
-    cursor: pointer;
-    margin: 0px 15px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    color: white;
-}
-
-.final_buttons #save_table {
-    background: #007706;
-}
-.final_buttons #save_table:hover {
-    background: #00a008;
-}
-
-.final_buttons #clear_table {
-    background: #aaa8a9;
-}
-.final_buttons #clear_table:hover {
-    background: #c0c0c0;
+.table_who {
+    font-size: 15px;
+    color: #969696;
+    text-align: left;
 }

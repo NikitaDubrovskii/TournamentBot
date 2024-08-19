@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../styles/create_table.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../styles/awesomeFont/css/all.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="hi_user">
+        <h1>Создание турнира</h1>
+    </div>
+
+    <form id="tournType">
+            <input type="text" id="input_tournment" placeholder="Название турнира)))">
+            <select class="custom-select"> 
+                <option disabled>Тип</option>
+                <option>Лига</option> 
+                <option>Группы</option> 
+            </select>
+    </form>
+    
+    <form id="dataForm" action="javascript:void(0);">
+        <label for="name">Имя</label>
+        <input type="text" id="input_name" placeholder="Введите)))">
+        <label for="team">Команда</label>
+        <input type="text" id="input_team" placeholder="Введите)))">
+        <input type="submit" value="Submit">
+    </form>
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Имя</th>
+                    <th>Команда</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="final_buttons">
+          <a href="table.html">
+            <button id="save_table">Сохранить таблицу</button>
+          </a>  
+            <button id="clear_table">Очистить таблицу</button>
+        </div>
+       
+        <script src="../script.js"></script>
+
+</body>
+</html>

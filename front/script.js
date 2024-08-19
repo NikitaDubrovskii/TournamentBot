@@ -52,8 +52,7 @@ function addRow() {
     cell1.textContent = rowCount;
     cell2.textContent = document.getElementById('input_name').value;
     cell3.textContent = document.getElementById('input_team').value;
-    // cell4.innerHTML = '<button onclick="editRow(this)">Изменить</button> <button onclick="deleteRow(this)">Удалить</button>';
-    cell4.innerHTML = '<i class="fa-solid fa-pen-to-square" onclick="editRow(this)"></i>  <i class="fa-solid fa-trash" onclick="deleteRow(this)"></i>';
+    cell4.innerHTML = '<i class="fa-solid fa-trash" onclick="deleteRow(this)"></i>';
 
     document.getElementById('input_name').value = '';
     document.getElementById('input_team').value = '';
@@ -64,81 +63,6 @@ function deleteRow(icon) {
     const row = icon.closest('tr');
     row.parentNode.removeChild(row);
     updateRowNumbers();
-}
-
-function editRow(icon) {
-    const row = icon.closest('tr');
-    const nameCell = row.cells[1];
-    const teamCell = row.cells[2];
-
-    const name = nameCell.textContent;
-    const team = teamCell.textContent;
-
-    nameCell.innerHTML = `<input type="text" class="edit_name" value="${name}">`;
-    teamCell.innerHTML = `<input type="text" class="edit_team" value="${team}">`;
-
-    const editIcon = row.querySelector('.fa-pen-to-square');
-    const deleteIcon = row.querySelector('.fa-trash');
-
-    editIcon.className = 'fa-solid fa-check';
-    deleteIcon.className = 'fa-solid fa-x';
-
-    editIcon.onclick = function() {
-        saveRow(this);
-    };
-    deleteIcon.onclick = function() {
-        cancelEdit(this);
-    };
-}
-
-function saveRow(icon) {
-    const row = icon.closest('tr');
-    const nameCell = row.cells[1];
-    const teamCell = row.cells[2];
-
-    const nameInput = nameCell.querySelector('input');
-    const teamInput = teamCell.querySelector('input');
-
-    nameCell.textContent = nameInput.value;
-    teamCell.textContent = teamInput.value;
-
-    const editIcon = row.querySelector('.fa-check');
-    const deleteIcon = row.querySelector('.fa-x');
-
-    editIcon.className = 'fa-solid fa-pen-to-square';
-    deleteIcon.className = 'fa-solid fa-trash';
-
-    editIcon.onclick = function() {
-        editRow(this);
-    };
-    deleteIcon.onclick = function() {
-        deleteRow(this);
-    };
-}
-
-function cancelEdit(icon) {
-    const row = icon.closest('tr');
-    const nameCell = row.cells[1];
-    const teamCell = row.cells[2];
-
-    const name = nameCell.querySelector('input').value;
-    const team = teamCell.querySelector('input').value;
-
-    nameCell.textContent = name;
-    teamCell.textContent = team;
-
-    const editIcon = row.querySelector('.fa-check');
-    const deleteIcon = row.querySelector('.fa-x');
-
-    editIcon.className = 'fa-solid fa-pen-to-square';
-    deleteIcon.className = 'fa-solid fa-trash';
-
-    editIcon.onclick = function() {
-        editRow(this);
-    };
-    deleteIcon.onclick = function() {
-        deleteRow(this);
-    };
 }
 
 function updateRowNumbers() {
