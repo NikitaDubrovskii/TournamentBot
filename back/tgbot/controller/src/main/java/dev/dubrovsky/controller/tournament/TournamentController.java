@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("api/tournament")
-@CrossOrigin(origins = {"https://tournamentbot-b7tb.onrender.com", "https://tournamentbot-k7kr.onrender.com"})
+@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
 @AllArgsConstructor
 public class TournamentController {
 

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/standing")
-@CrossOrigin(origins = {"https://tournamentbot-b7tb.onrender.com", "https://tournamentbot-k7kr.onrender.com"})
+@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
 @AllArgsConstructor
 public class StandingController {
 

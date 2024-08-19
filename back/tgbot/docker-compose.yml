@@ -6,9 +6,9 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_DB: tournament_bot_db
+      POSTGRES_DB: tournament_bot_db_7daj
       POSTGRES_USER: nikita
-      POSTGRES_PASSWORD: 5Pf3NuQeBpbRJc6LxiOpuYmaZq5EgOxM
+      POSTGRES_PASSWORD: 6F7HDHsThO1crVbp7PWIYAlrFhjnGGlJ
     ports:
       - "5432:5432"
 
