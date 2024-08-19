@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/tournament")
-@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
+//@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
 @AllArgsConstructor
 public class TournamentController {
 
