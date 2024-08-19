@@ -7,10 +7,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>controller</artifactId>
+    <artifactId>dto</artifactId>
     <packaging>jar</packaging>
 
-    <name>controller</name>
+    <name>dto</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,12 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>dev.dubrovsky</groupId>
-            <artifactId>service</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.dubrovsky</groupId>
-            <artifactId>dto</artifactId>
+            <artifactId>model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

@@ -26,6 +26,9 @@ public class Standing {
     @JoinColumn(name = "participant_id", nullable = false)
     private Participant participant;
 
+    @Column(name = "played", nullable = false)
+    private Integer played = 0;
+
     @Column(name = "wins", nullable = false)
     private Integer wins = 0;
 

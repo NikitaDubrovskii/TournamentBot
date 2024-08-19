@@ -34,6 +34,8 @@ public class TournamentService {
 
     @Transactional
     public void createTournament(NewTournamentPayload tournamentPayload) {
+        deactivatePreviousTournament();
+
         Tournament tournament = new Tournament();
         tournament.setName(tournamentPayload.name());
         tournament.setFormat(tournamentPayload.format());

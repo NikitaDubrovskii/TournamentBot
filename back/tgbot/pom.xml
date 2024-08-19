@@ -30,6 +30,7 @@
         <module>util</module>
         <module>controller</module>
         <module>payload</module>
+        <module>dto</module>
     </modules>
 
     <properties>

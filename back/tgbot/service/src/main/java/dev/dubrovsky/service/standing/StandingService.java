@@ -21,14 +21,11 @@ public class StandingService {
     private final TournamentParticipantRepository tournamentParticipantRepository;
 
     public List<Standing> getAll() {
-        /*if (standingRepository.count() == 0) {
-            Tournament tournament = tournamentRepository.findByIsActive(true);
+        return standingRepository.findAllByTournamentIsActiveTrue();
+    }
 
-            Standing standing = new Standing();
-            standing.setParticipant();
-            standing.setTournament(tournament);
-        }*/
-        return null;
+    public Standing getById(Long id) {
+        return standingRepository.findById(id).orElse(null);
     }
 
 }
