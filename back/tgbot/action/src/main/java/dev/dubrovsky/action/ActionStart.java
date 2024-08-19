@@ -58,7 +58,7 @@ public class ActionStart implements IAction{
                 InlineKeyboardButton webAppButton = new InlineKeyboardButton();
                 webAppButton.setText("Open Tournament 🏆");
                 String username = update.getMessage().getFrom().getUserName();
-                webAppButton.setWebApp(new WebAppInfo("https://tournamentbot-b7tb.onrender.com?username=" + URLEncoder.encode(username, StandardCharsets.UTF_8)));
+                webAppButton.setWebApp(new WebAppInfo("https://tournamentbotbackend-5ou2.onrender.com?username=" + URLEncoder.encode(username, StandardCharsets.UTF_8)));
 
                 InlineKeyboardButton settingsButton = new InlineKeyboardButton();
                 settingsButton.setText("Settings ⚙️");
