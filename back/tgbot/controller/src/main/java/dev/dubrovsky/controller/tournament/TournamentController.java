@@ -1,5 +1,6 @@
 package dev.dubrovsky.controller.tournament;
 
+import dev.dubrovsky.model.tournament.Tournament;
 import dev.dubrovsky.payload.tournament.NewTournamentPayload;
 import dev.dubrovsky.payload.tournament.SimpleTournamentDTO;
 import dev.dubrovsky.service.tournament.TournamentService;
@@ -9,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("api/tournament")
-//@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com")
+@CrossOrigin(origins = {"https://tournamentbot-b7tb.onrender.com", "https://tournamentbot-k7kr.onrender.com"})
 @AllArgsConstructor
 public class TournamentController {
 

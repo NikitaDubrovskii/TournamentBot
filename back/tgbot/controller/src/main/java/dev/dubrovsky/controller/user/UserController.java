@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin(origins = "https://tournamentbot-b7tb.onrender.com") //может можно убрать
+@CrossOrigin(origins = {"https://tournamentbot-b7tb.onrender.com", "https://tournamentbot-k7kr.onrender.com"})
 @AllArgsConstructor
 public class UserController {
 

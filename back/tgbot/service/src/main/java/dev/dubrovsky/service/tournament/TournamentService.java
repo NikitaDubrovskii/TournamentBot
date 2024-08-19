@@ -112,4 +112,7 @@ public class TournamentService {
         }*/
     }
 
+    public Tournament getActive() {
+        return tournamentRepository.findByIsActiveTrue();
+    }
 }
