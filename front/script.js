@@ -58,14 +58,61 @@ document.getElementById('save_table').addEventListener('click', function() {
         }, 
         body: JSON.stringify(data) 
     }) 
-    .then(response => response.json()) 
-    .then(data => { 
-        console.log('Success:', data); 
-    }) 
+    .then(response => response.text()) 
+    .then(text => {
+        try {
+            let jsonResponse = JSON.parse(text); 
+            console.log('Success:', jsonResponse); 
+
+            updateGameTable(); // Добавим вызов функции GET запроса здесь
+
+        } catch (error) {
+            console.error('Ответ не является допустимым JSON:', text); 
+        }
+    })
     .catch((error) => { 
         console.error('Error:', error); 
     }); 
 });
+
+
+function updateGameTable() {
+    fetch('https://tournamentbotbackend.onrender.com/api/standing/get')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('game_table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; // Очистить существующие строки таблицы перед добавлением новых
+            
+            data.forEach((item, index) => {
+                const row = tableBody.insertRow();
+                
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                const cell4 = row.insertCell(3);
+                const cell5 = row.insertCell(4);
+                const cell6 = row.insertCell(5);
+                const cell7 = row.insertCell(6);
+                const cell8 = row.insertCell(7);
+
+                cell1.textContent = index + 1;
+                cell2.innerHTML = `
+                    <div class="table_what">${item.teamName}</div>
+                    <div class="table_who">@${item.participantName}</div>
+                `;
+                cell3.textContent = item.played || 0;
+                cell4.textContent = item.wins || 0;
+                cell5.textContent = item.draws || 0;
+                cell6.textContent = item.losses || 0;
+                cell7.textContent = item.goalsFor || 0;
+                cell8.textContent = item.points || 0;
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching standings:', error);
+        });
+}
+
 
 document.getElementById('dataForm').addEventListener('submit', function(event) {
     event.preventDefault();
